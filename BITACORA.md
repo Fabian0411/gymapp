@@ -2,13 +2,14 @@
 
 > Contexto del proyecto para retomar el trabajo sin re-explorar el código.
 > **Mantener actualizada**: al agregar/mover archivos o tomar decisiones, actualizar aquí.
-> Última actualización: 2026-07-07 (Fase 1 codificada y commiteada).
+> Última actualización: 2026-08-26 (publicado en GitHub).
 
 ## Qué es
 
 Red social de gimnasio: rutinas con tutoriales de ejercicios, amigos, compartir rutinas.
 Usuario: desarrollador con experiencia intermedia, habla español, presupuesto mínimo.
 Plan maestro completo en `C:\Users\Nan\.claude\plans\tengo-planeado-crear-una-streamed-ember.md`.
+Repo: https://github.com/Fabian0411/gymapp (público, rama `main`).
 
 **Stack:** Expo SDK 57 + TypeScript + Expo Router (src/app = rutas) · Supabase free tier
 (auth + Postgres con RLS + storage) · TanStack Query · catálogo de ejercicios free-exercise-db.
@@ -94,7 +95,13 @@ Colores light/dark, `Spacing` (usar siempre, no números mágicos), `Accent` (#F
 ## Decisiones tomadas (no re-discutir sin motivo)
 - **MVP primero rutinas+social**, feed después (Fase 2), dietas después (Fase 3).
 - **Monetización** (decidida jul 2026): gratis = 5 rutinas, slots extra con anuncio recompensado voluntario (nunca interstitials forzados), estadísticas con ventana de 1 mes; Pro $3-5/mes (RevenueCat) = ilimitado + historial completo + sin anuncios + exportar. **Los datos se guardan siempre completos, solo se limita la ventana de visualización** (aplicar límite también en servidor).
-- GitHub: el usuario prefiere repo privado por ahora; ojo con el LICENSE MIT de la plantilla si lo hace público.
+- **GitHub** (ago 2026): repo **público** en https://github.com/Fabian0411/gymapp, rama `main`.
+  Se eliminó el `LICENSE` MIT que traía la plantilla de Expo (declaraba copyright de 650 Industries).
+  **Se dejó a propósito SIN archivo LICENSE** = "todos los derechos reservados": se puede leer como
+  portafolio pero nadie puede legalmente copiarlo/venderlo, importante porque la app se va a monetizar.
+  No agregar una licencia permisiva (MIT/Apache) sin consultarlo primero.
+- Publicar el esquema con las políticas RLS es seguro y deliberado: la autorización se aplica en el
+  servidor, no depende de que las reglas sean secretas. Lo que NUNCA sube es la `service_role key`.
 - Peso en rutinas = peso de trabajo actual (sin historial). El historial real llega en Fase 2 con `workout_logs`.
 
 ## Cómo verificar que todo sigue funcionando

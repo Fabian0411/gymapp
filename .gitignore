@@ -42,3 +42,9 @@ example
 # generated native folders
 /ios
 /android
+
+# notas internas y configuracion de agentes IA: se quedan en local, no se publican
+.claude/
+AGENTS.md
+BITACORA.md
+CLAUDE.md
